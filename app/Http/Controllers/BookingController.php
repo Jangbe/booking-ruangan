@@ -16,7 +16,10 @@ class BookingController extends Controller
      */
     public function index()
     {
-        $bookings = Booking::all();
+        if (request()->user()->role == 'Admin')
+            $bookings = Booking::all();
+        else
+            $bookings = Booking::where('user_id', request()->user()->id)->get();
         return view('booking.index', compact('bookings'));
     }
 
@@ -61,6 +64,8 @@ class BookingController extends Controller
 
     public function show(Booking $booking)
     {
+        $user = request()->user();
+        abort_if($user->role == 'User' && $booking->user_id != $user->id, 404);
         return view('booking.show', compact('booking'));
     }
 
@@ -69,6 +74,8 @@ class BookingController extends Controller
      */
     public function edit(Booking $booking)
     {
+        $user = request()->user();
+        abort_if($user->role == 'User' && $booking->user_id != $user->id, 404);
         $action = route('booking.update', $booking);
         $method = 'PUT';
         $facilities = Facility::all()->where('available', '>', 0);
@@ -80,6 +87,8 @@ class BookingController extends Controller
      */
     public function update(Request $request, Booking $booking)
     {
+        $user = request()->user();
+        abort_if($user->role == 'User' && $booking->user_id != $user->id, 404);
         $valid = $request->validate([
             'event_name' => 'required',
             'booking_date' => 'required|date',
@@ -120,6 +129,8 @@ class BookingController extends Controller
      */
     public function destroy(Booking $booking)
     {
+        $user = request()->user();
+        abort_if($user->role == 'User' && $booking->user_id != $user->id, 404);
         if (Storage::exists(substr($booking->proposal, 9))) {
             Storage::delete(substr($booking->proposal, 9));
         }
