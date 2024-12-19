@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-10">
                 <div class="card">
                     <div class="card-header">{{ __('Form Facility') }}</div>
 
@@ -34,7 +34,7 @@
                                     class="col-md-4 col-form-label text-md-end">{{ __('Type') }}</label>
 
                                 <div class="col-md-6">
-                                    <select id="type" class="form-select @error('type') is-invalid @enderror"
+                                    <select id="type" class="form-control @error('type') is-invalid @enderror"
                                         name="type">
                                         <option value="Room" @selected(old('type', $facility->type) == 'Room')>Ruangan</option>
                                         <option value="Item" @selected(old('type', $facility->type) == 'Item')>Barang</option>

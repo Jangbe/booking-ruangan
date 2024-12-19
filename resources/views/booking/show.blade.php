@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-10">
                 <div class="card">
                     <div class="card-header">{{ __('Detail Booking') }}</div>
 
@@ -28,15 +28,19 @@
                                 <td>
                                     @switch($booking->status)
                                         @case('accepted')
-                                            <span class="badge bg-success">Diterima</span>
+                                            <span class="badge bg-info text-white">Diterima</span>
                                         @break
 
                                         @case('rejected')
-                                            <span class="badge bg-danger">Ditolak</span>
+                                            <span class="badge bg-danger text-white">Ditolak</span>
+                                        @break
+
+                                        @case('finished')
+                                            <span class="badge bg-success text-white">Selesai</span>
                                         @break
 
                                         @default
-                                            <span class="badge bg-warning">Pending</span>
+                                            <span class="badge bg-warning text-white">Pending</span>
                                     @endswitch
                                 </td>
                             </tr>
@@ -62,7 +66,8 @@
                             </tr>
                         </table>
                         @if (auth()->user()->role == 'Admin')
-                            <form class="input-group mx-auto" action="{{ route('booking.update-status', $booking) }}" method="POST">
+                            <form class="input-group mx-auto" action="{{ route('booking.update-status', $booking) }}"
+                                method="POST">
                                 @csrf
                                 <select name="status" class="form-select">
                                     <option value="accepted" @selected($booking->status == 'accepted')>Terima</option>

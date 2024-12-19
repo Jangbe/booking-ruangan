@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-10">
                 <div class="card">
                     <div class="card-header">
                         <div class="d-flex justify-content-between">
@@ -19,7 +19,7 @@
                             </div>
                         @endif
 
-                        <table class="table table-striped table-secondary">
+                        <table class="table table-striped table-bordered">
                             <thead>
                                 <th>No</th>
                                 <th>Nama</th>

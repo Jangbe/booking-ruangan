@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-10">
                 <div class="card">
                     <div class="card-header">{{ __('Form Booking') }}</div>
 
@@ -34,7 +34,7 @@
                                     class="col-md-4 col-form-label text-md-end">{{ __('Booking Date') }} /
                                     {{ __('Duration') }}</label>
 
-                                <div class="col-md-3">
+                                <div class="col-md-3 col-6">
                                     <input id="booking_date"
                                         class="form-control @error('booking_date') is-invalid @enderror" name="booking_date"
                                         type="date"
@@ -47,7 +47,7 @@
                                         </span>
                                     @enderror
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-3 col-6">
                                     <input id="duration" class="form-control @error('duration') is-invalid @enderror"
                                         name="duration" type="number" value="{{ old('duration', $booking->duration) }}"
                                         required autocomplete="duration">
@@ -88,9 +88,9 @@
                                         <label for="facility" class="col-md-4 col-form-label text-md-end">
                                             Fasilitas / Quantity
                                         </label>
-                                        <div class="col-md-4">
+                                        <div class="col-md-4 col-7">
                                             <select name="facilities[{{ $i }}][facility_id]"
-                                                class="form-select @error('facilities.' . $i . '.facility_id') is-invalid @enderror">
+                                                class="form-control @error('facilities.' . $i . '.facility_id') is-invalid @enderror">
                                                 <option>----Pilih----</option>
                                                 @foreach ($facilities as $facility)
                                                     <option value="{{ $facility->id }}" @selected($bf['id'] == $facility->id)
@@ -99,7 +99,7 @@
                                                 @endforeach
                                             </select>
                                         </div>
-                                        <div class="col-md-2">
+                                        <div class="col-md-2 col-5">
                                             <div class="input-group">
                                                 <input
                                                     class="form-control @error('facilities.' . $i . '.quantity') is-invalid @enderror"
@@ -143,7 +143,7 @@
                 </label>
                 <div class="col-md-4">
                     <select name="facilities[${length}][facility_id]"
-                        class="form-select">
+                        class="form-control">
                         <option>----Pilih----</option>
                         @foreach ($facilities as $facility)
                             <option value="{{ $facility->id }}" data-facility="{{ $facility }}">{{ $facility->name }}</option>

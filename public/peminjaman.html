@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Informasi Peminjaman Fasilitas</title>
+    <link rel="stylesheet" href="css/peminjaman-styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <img src="img/logo-uin.png" alt="Logo" />
+            </div>
+            <h3>SISTEM INFORMASI PEMINJAMAN FASILITAS FAKULTAS</h3>
+            <h4>UIN SUNAN GUNUNG DJATI BANDUNG</h4>
+            <div class="profile">
+                <img src="img/profile.png" alt="Profile Picture" class="profile-pic">
+                <p>Suwandi</p>
+                <p class="role">Mahasiswa</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Ruang Kelas</a></li>
+                    <li><a href="#" class="active">Peminjaman</a></li>
+                    <li><a href="#">Profil</a></li>
+                </ul>
+            </nav>
+            <button class="logout">Log out</button>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <header>
+                <h1>Peminjaman</h1>
+                <input type="text" placeholder="Cari kelas...">
+                <button class="notification-icon">🔔</button>
+            </header>
+            <section class="booking">
+                <h2>Sedang berlangsung</h2>
+                <div class="booking-info">
+                    <div class="room">Ruangan 130</div>
+                    <div class="location">Gedung Utama</div>
+                    <div class="date">4 Mei 2023</div>
+                    <div class="time">10.00 WIB</div>
+                    <div class="status">Booking</div>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+</html>

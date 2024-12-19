@@ -1,0 +1,175 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f9f9;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #2ecc71;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.logo img {
+    width: 80px;
+    margin-bottom: 20px;
+}
+
+.profile {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.profile-pic {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.role {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+    text-align: center;
+    margin: 5px 0;
+    transition: background-color 0.3s;
+}
+
+.nav-link:hover, .nav-link.active {
+    background-color: #27ae60;
+    border-radius: 5px;
+}
+
+.logout {
+    color: #fff;
+    text-decoration: none;
+    margin-top: auto;
+    font-weight: bold;
+}
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.search-bar input {
+    border: none;
+    padding: 8px;
+    outline: none;
+}
+
+.search-bar button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.notification-icon {
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.floor-navigation {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.floor-button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.floor-button.active {
+    background-color: #0056b3;
+}
+
+.room-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.room-card {
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    text-align: left;
+    position: relative;
+}
+
+.room-card p {
+    margin: 5px 0;
+}
+
+.status {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 12px;
+    color: #fff;
+}
+
+.status.used {
+    background-color: #e74c3c;
+}
+
+.status.booking {
+    background-color: #f1c40f;
+}
+
+.status.available {
+    background-color: #2ecc71;
+}

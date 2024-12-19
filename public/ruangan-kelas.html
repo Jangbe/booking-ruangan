@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Informasi Peminjaman Fasilitas Fakultas</title>
+    <link rel="stylesheet" href="css/ruangan-kelas-style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <img src="img/logo-uin.png" alt="Logo" />
+            </div>
+            <h3>SISTEM INFORMASI PEMINJAMAN FASILITAS FAKULTAS</h3>
+            <h4>UIN SUNAN GUNUNG DJATI BANDUNG</h4>
+
+            <div class="profile">
+                <img src="img/profile.png" alt="Profile Picture" class="profile-pic">
+                <p>Suwandi</p>
+                <p class="role">Mahasiswa</p>
+            </div>
+
+            <nav>
+                <a href="#" class="nav-link active">Ruang Kelas</a>
+                <a href="#" class="nav-link">Peminjaman</a>
+                <a href="#" class="nav-link">Profil</a>
+            </nav>
+
+            <a href="#" class="logout">Log out</a>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <header>
+                <h2>Ruang Kelas</h2>
+                <div class="search-bar">
+                    <input type="text" placeholder="Cari kelas...">
+                    <button><i class="search-icon">🔍</i></button>
+                </div>
+                <button class="notification-icon">🔔</button>
+            </header>
+
+            <div class="floor-navigation">
+                <button class="floor-button active" onclick="filterRooms('Gedung Utama')">Gedung Utama</button>
+                <button class="floor-button" onclick="filterRooms('Gedung Serba Guna')">Gedung Serba Guna</button>
+                <button class="floor-button" onclick="filterRooms('Lantai 1')">Lantai 1</button>
+                <button class="floor-button" onclick="filterRooms('Lantai 2')">Lantai 2</button>
+                <button class="floor-button" onclick="filterRooms('Lantai 3')">Lantai 3</button>
+            </div>
+
+            <div class="room-list">
+                <!-- Room Items -->
+                <div class="room-card" data-category="Gedung Utama">
+                    <p>Ruangan 118</p>
+                    <p>Gedung Utama</p>
+                    <span class="status used">Digunakan</span>
+                </div>
+                <div class="room-card" data-category="Gedung Utama">
+                    <p>Ruangan 119</p>
+                    <p>Gedung Utama</p>
+                    <span class="status booking">Booking</span>
+                </div>
+                <div class="room-card" data-category="Lantai 1">
+                    <p>Ruangan 124</p>
+                    <p>Lantai 1</p>
+                    <span class="status available">Tersedia</span>
+                </div>
+                <div class="room-card" data-category="Lantai 2">
+                    <p>Ruangan 125</p>
+                    <p>Lantai 2</p>
+                    <span class="status available">Tersedia</span>
+                </div>
+                <div class="room-card" data-category="Gedung Serba Guna">
+                    <p>Ruangan 127</p>
+                    <p>Gedung Serba Guna</p>
+                    <span class="status used">Digunakan</span>
+                </div>
+                <!-- Add more room-cards as needed -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function filterRooms(category) {
+            // Get all room cards
+            const rooms = document.querySelectorAll('.room-card');
+            // Loop through all rooms
+            rooms.forEach(room => {
+                if (room.getAttribute('data-category') === category || category === "All") {
+                    room.style.display = "block";
+                } else {
+                    room.style.display = "none";
+                }
+            });
+
+            // Remove 'active' class from all buttons
+            const buttons = document.querySelectorAll('.floor-button');
+            buttons.forEach(button => button.classList.remove('active'));
+
+            // Add 'active' class to the clicked button
+            const activeButton = document.querySelector(`.floor-button[onclick="filterRooms('${category}')"]`);
+            activeButton.classList.add('active');
+        }
+    </script>
+</body>
+</html>
